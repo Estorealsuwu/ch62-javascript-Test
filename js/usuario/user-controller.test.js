@@ -13,37 +13,37 @@ describe('UserController', () => {
     controller.add(user1);
   });
 
-  // ✅ add() - usuario que NO está en la lista
+  // add() - usuario que NO está en la lista
   test('add() agrega un usuario que no existe', () => {
     controller.add(user2);
     expect(controller.getUsers().length).toBe(2);
   });
 
-  // ✅ remove() - usuario que NO está en la lista
+  // remove() - usuario que NO está en la lista
   test('remove() no elimina nada si el usuario no existe', () => {
     controller.remove(user2);
     expect(controller.getUsers().length).toBe(1);
   });
 
-  // ✅ findByEmail() - caso positivo
+  // findByEmail() - caso positivo
   test('findByEmail() encuentra un usuario existente', () => {
     const result = controller.findByEmail('user1@test.com');
     expect(result).toBe(user1);
   });
 
-  // ✅ findByEmail() - caso negativo
+  // findByEmail() - caso negativo
   test('findByEmail() retorna undefined si no existe', () => {
     const result = controller.findByEmail('no@test.com');
     expect(result).toBeUndefined();
   });
 
-  // ✅ findById() - caso positivo
+  // findById() - caso positivo
   test('findById() encuentra un usuario por id', () => {
     const result = controller.findById(1);
     expect(result).toBe(user1);
   });
 
-  // ✅ findById() - caso negativo
+  // findById() - caso negativo
   test('findById() retorna undefined si no existe', () => {
     const result = controller.findById(99);
     expect(result).toBeUndefined();
